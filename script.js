@@ -10,18 +10,10 @@ function generateColor() {
 function changeBackgroundColor() {
     const newColor = generateColor();
     document.body.style.backgroundColor = newColor;
+
+    const corGerada = document.getElementById('corGerada');
+    corGerada.innerHTML = ` ${newColor}`;
 }
 
 document.getElementById('colorButton').addEventListener('click', changeBackgroundColor);
 
-function copyColorCode() {
-    const colorCode = document.body.style.backgroundColor;
-    navigator.clipboard.writeText(colorCode).then(function() {
-        alert('Código da cor copiado para a área de transferência: ' + colorCode);
-    }, function() {
-        alert('Erro ao copiar o código da cor.');
-    });
-}
-
-document.getElementById('colorButton').addEventListener('click', changeBackgroundColor);
-document.getElementById('copyButton').addEventListener('click', copyColorCode);
